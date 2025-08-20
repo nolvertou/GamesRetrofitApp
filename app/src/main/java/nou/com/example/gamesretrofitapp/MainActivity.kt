@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dagger.hilt.android.AndroidEntryPoint
+import nou.com.example.gamesretrofitapp.navigation.NavManager
 import nou.com.example.gamesretrofitapp.ui.theme.GamesRetrofitAppTheme
 import nou.com.example.gamesretrofitapp.viewModel.GamesViewModel
 import nou.com.example.gamesretrofitapp.views.HomeView
@@ -31,9 +32,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier
                         .fillMaxSize()
                 ) {
-                    HomeView(
-                        viewModel
-                    )
+                    NavManager(viewModel)
                 }
             }
         }

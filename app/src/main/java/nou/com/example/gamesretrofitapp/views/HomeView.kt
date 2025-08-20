@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import nou.com.example.gamesretrofitapp.components.CardGame
 import nou.com.example.gamesretrofitapp.components.MainTopBar
 import nou.com.example.gamesretrofitapp.util.Constants.Companion.CUSTOM_BLACK
@@ -21,7 +22,8 @@ import nou.com.example.gamesretrofitapp.viewModel.GamesViewModel
 
 @Composable
 fun HomeView(
-    viewModel: GamesViewModel
+    viewModel: GamesViewModel,
+    navController: NavController
 ) {
     Scaffold(
         topBar = {
@@ -31,7 +33,7 @@ fun HomeView(
         }
     ) {
         ContentHomeView(
-            viewModel, it
+            viewModel, it, navController
         )
     }
 }
@@ -39,7 +41,8 @@ fun HomeView(
 @Composable
 fun ContentHomeView(
     viewModel: GamesViewModel,
-    padding: PaddingValues
+    padding: PaddingValues,
+    navController: NavController
 ){
     val games by viewModel.games.collectAsState()
 
@@ -50,7 +53,7 @@ fun ContentHomeView(
     ) {
         items(games){ item ->
             CardGame(item){
-                // TODO
+                navController.navigate("DetailView/${item.id}")
             }
             Text(
                 text = item.name,
