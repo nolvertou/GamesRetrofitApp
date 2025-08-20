@@ -2,6 +2,7 @@ package nou.com.example.gamesretrofitapp.repository
 
 import nou.com.example.gamesretrofitapp.data.ApiGames
 import nou.com.example.gamesretrofitapp.model.GameList
+import nou.com.example.gamesretrofitapp.model.SingleGameModel
 import javax.inject.Inject
 
 class GamesRepository @Inject constructor(private val apiGames: ApiGames) {
@@ -11,6 +12,15 @@ class GamesRepository @Inject constructor(private val apiGames: ApiGames) {
         if(response.isSuccessful){
             return response.body()?.results
         } else{
+            return null
+        }
+    }
+
+    suspend fun getGameById(id: Int): SingleGameModel?{
+        val response = apiGames.getGameById(id)
+        if(response.isSuccessful){
+            return response.body()
+        }else{
             return null
         }
     }

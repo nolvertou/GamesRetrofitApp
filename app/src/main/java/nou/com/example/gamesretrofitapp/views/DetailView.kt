@@ -3,6 +3,7 @@ package nou.com.example.gamesretrofitapp.views
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -15,5 +16,11 @@ fun DetailView(
     navController: NavController,
     id: Int
 ){
-    Text(text = id.toString(), color = Color.White, modifier = Modifier.padding(30.dp))
+
+    // Its executed when DetailView is opened
+    LaunchedEffect(Unit) {
+        viewModel.getGameById(id)
+    }
+    Text(text = viewModel.state.name, color = Color.White, modifier = Modifier.padding(30.dp))
+
 }
