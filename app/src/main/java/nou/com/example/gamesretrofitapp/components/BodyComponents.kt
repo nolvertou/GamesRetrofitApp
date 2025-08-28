@@ -14,6 +14,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -21,6 +22,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
@@ -33,6 +35,7 @@ import coil.compose.rememberAsyncImagePainter
 import coil.compose.rememberImagePainter
 import nou.com.example.gamesretrofitapp.model.GameList
 import nou.com.example.gamesretrofitapp.util.Constants.Companion.CUSTOM_BLACK
+import nou.com.example.gamesretrofitapp.util.Constants.Companion.CUSTOM_GREEN
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -113,6 +116,29 @@ fun MetaWebsite(url: String){
             containerColor = Color.Gray
         )) {
             Text(text = "Web Site")
+        }
+    }
+}
+
+@Composable
+fun ReviewCard(metascore: Int){
+    Card(
+        modifier = Modifier.padding(16.dp),
+        shape = RoundedCornerShape(8.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = Color(CUSTOM_GREEN)
+        )
+    ){
+        Column(
+            modifier = Modifier.padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = metascore.toString(),
+                color = Color.White,
+                fontWeight = FontWeight.ExtraBold,
+                fontSize = 50.sp
+            )
         }
     }
 }
