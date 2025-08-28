@@ -1,6 +1,15 @@
 package nou.com.example.gamesretrofitapp.views
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -8,6 +17,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import nou.com.example.gamesretrofitapp.components.MainImage
+import nou.com.example.gamesretrofitapp.components.MainTopBar
+import nou.com.example.gamesretrofitapp.util.Constants.Companion.CUSTOM_BLACK
 import nou.com.example.gamesretrofitapp.viewModel.GamesViewModel
 
 @Composable
@@ -22,5 +34,45 @@ fun DetailView(
         viewModel.getGameById(id)
     }
     Text(text = viewModel.state.name, color = Color.White, modifier = Modifier.padding(30.dp))
+
+    Scaffold(
+        topBar = {
+            MainTopBar(
+                title = viewModel.state.name,
+                showBackButton = true
+            ) {
+                navController.popBackStack()
+            }
+        }
+    ) {
+        ContentDetailView(pad = it, viewModel = viewModel )
+    }
+
+}
+
+@Composable
+fun ContentDetailView(
+    pad: PaddingValues,
+    viewModel: GamesViewModel
+){
+    val state = viewModel.state
+
+    Column(
+        modifier = Modifier
+            .padding(pad)
+            .background(Color(CUSTOM_BLACK))
+    ) {
+        MainImage(image = state.background_image)
+        Spacer(modifier = Modifier.height(10.dp))
+        Row(
+            horizontalArrangement = Arrangement.SpaceBetween,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 20.dp, end = 5.dp)
+        ) {
+
+        }
+    }
+
 
 }
