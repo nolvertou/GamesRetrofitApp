@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import nou.com.example.gamesretrofitapp.components.MainImage
 import nou.com.example.gamesretrofitapp.components.MainTopBar
+import nou.com.example.gamesretrofitapp.components.MetaWebsite
 import nou.com.example.gamesretrofitapp.util.Constants.Companion.CUSTOM_BLACK
 import nou.com.example.gamesretrofitapp.viewModel.GamesViewModel
 
@@ -70,7 +71,7 @@ fun ContentDetailView(
                 .fillMaxWidth()
                 .padding(start = 20.dp, end = 5.dp)
         ) {
-
+            MetaWebsite(url = state.website)
         }
     }
 
