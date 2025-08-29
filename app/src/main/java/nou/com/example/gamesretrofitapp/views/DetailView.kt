@@ -14,6 +14,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -35,9 +36,25 @@ fun DetailView(
 ){
 
     // Its executed when DetailView is opened
+    // LaunchedEffect runs a coroutine when the key (Unit here) changes.
+    // Since the key is Unit (which never changes), it will only run once when the composable enters the composition.
+    // In your case, it means:
+    // When DetailView is first shown, it calls
+    // viewModel.getGameById(id)
+    // to load the game data.
     LaunchedEffect(Unit) {
         viewModel.getGameById(id)
     }
+
+    // DisposableEffect is used when you need to clean up resources when the composable leaves the composition.
+    // The onDispose { ... } block runs when DetailView is closed / removed from the screen.
+    // viewModel.clean() is used to clear state, cancel things, or reset variables.
+    DisposableEffect(Unit) {
+        onDispose {
+            viewModel.clean()
+        }
+    }
+
     Text(text = viewModel.state.name, color = Color.White, modifier = Modifier.padding(30.dp))
 
     Scaffold(
@@ -89,6 +106,4 @@ fun ContentDetailView(
                 .verticalScroll(scroll)
         )
     }
-
-
 }

@@ -53,5 +53,14 @@ class GamesViewModel @Inject constructor(private val repo: GamesRepository): Vie
         }
     }
 
+    fun clean(){
+        state = state.copy(
+            name = "",
+            description_raw = "",
+            metacritic = 111,
+            website = "without web",
+            background_image =  ""
+        )
+    }
 
 }
