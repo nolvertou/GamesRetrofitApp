@@ -27,9 +27,12 @@ fun HomeView(
 ) {
     Scaffold(
         topBar = {
-            MainTopBar(title = "API GAMES", showBackButton = true) {
-
+            MainTopBar(title =  "API GAMES", onClickBackButton = {  }) {
+                navController.navigate("SearchGameView")
             }
+//            MainTopBar(title = "API GAMES", showBackButton = true) {
+//
+//            }
         }
     ) {
         ContentHomeView(

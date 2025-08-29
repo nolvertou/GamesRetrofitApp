@@ -61,10 +61,9 @@ fun DetailView(
         topBar = {
             MainTopBar(
                 title = viewModel.state.name,
-                showBackButton = true
-            ) {
-                navController.popBackStack()
-            }
+                showBackButton = true,
+                onClickBackButton = { navController.popBackStack()}
+            ) { }
         }
     ) {
         ContentDetailView(pad = it, viewModel = viewModel )
