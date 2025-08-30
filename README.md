@@ -40,9 +40,9 @@
 
 <h3> App Views </h3>
 <p align="center">
-  <img src="https://github.com/nolvertou/GamesRetrofitApp/blob/4f660c988b4ab9e49ee0defb01f95fecd8cabb87/app/src/main/res/drawable/HomeView.jpg" alt="HomeView" width="200" style="margin: 0 10px;"/>
-  <img src="https://github.com/nolvertou/GamesRetrofitApp/blob/4f660c988b4ab9e49ee0defb01f95fecd8cabb87/app/src/main/res/drawable/DetailView.jpg" alt="DetailView" width="200" style="margin: 0 10px;"/>
-  <img src="https://github.com/nolvertou/GamesRetrofitApp/blob/4f660c988b4ab9e49ee0defb01f95fecd8cabb87/app/src/main/res/drawable/SearchGameView.jpg" alt="SearchGameView" width="200" style="margin: 0 10px;"/>
+  <img src="https://github.com/nolvertou/GamesRetrofitApp/blob/4f660c988b4ab9e49ee0defb01f95fecd8cabb87/app/src/main/res/drawable/homeview.jpg" alt="HomeView" width="200" style="margin: 0 50px;"/>
+  <img src="https://github.com/nolvertou/GamesRetrofitApp/blob/4f660c988b4ab9e49ee0defb01f95fecd8cabb87/app/src/main/res/drawable/detailview.jpg" alt="DetailView" width="200" style="margin: 0 50px;"/>
+  <img src="https://github.com/nolvertou/GamesRetrofitApp/blob/4f660c988b4ab9e49ee0defb01f95fecd8cabb87/app/src/main/res/drawable/searchgameview.jpg" alt="SearchGameView" width="200" style="margin: 0 50px;"/>
 </p>
 
 
