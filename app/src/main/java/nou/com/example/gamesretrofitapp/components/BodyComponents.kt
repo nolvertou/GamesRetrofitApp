@@ -195,9 +195,15 @@ fun SimpleSearchBar(
             inputField = {
                 SearchBarDefaults.InputField(
                     query = textFieldState.text.toString(),
-                    onQueryChange = { textFieldState.edit { replace(0, length, it) } },
+                    onQueryChange = { newQuery ->
+                        textFieldState.edit { replace(0, length, newQuery) }
+                        onSearch(newQuery)       // live search as user types
+                        expanded = true          // keep results visible
+                    },
                     onSearch = {
-                        onSearch(textFieldState.text.toString())
+                        //optional: do nothing on Enter
+                        // If you want to look for only when press enter, uncomment this
+                        //onSearch(textFieldState.text.toString())
                         //expanded = false
                     },
                     expanded = expanded,
