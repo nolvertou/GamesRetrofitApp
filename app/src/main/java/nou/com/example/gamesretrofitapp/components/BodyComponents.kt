@@ -173,12 +173,14 @@ fun ReviewCard(metascore: Int){
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SimpleSearchBar(
+fun <T> SimpleSearchBar(
     textFieldState: TextFieldState,
     onSearch: (String) -> Unit,
-    searchResults: List<GameList>,
-    onResultClick: (GameList) -> Unit,
-    modifier: Modifier = Modifier
+    searchResults: List<T>,
+    onResultClick: (T) -> Unit,
+    resultText: @Composable (T) -> Unit,  // TODO: Understand
+    modifier: Modifier = Modifier,
+    resultToQuery: (T) -> String = {it.toString()} // default fallback // TODO Understand
 ) {
     // Controls expansion state of the search bar
     var expanded by rememberSaveable { mutableStateOf(false) }
@@ -218,10 +220,10 @@ fun SimpleSearchBar(
             Column(Modifier.verticalScroll(rememberScrollState())) {
                 searchResults.forEach { result ->
                     ListItem(
-                        headlineContent = { Text(result.name) },
+                        headlineContent = { resultText(result) },
                         modifier = Modifier
                             .clickable {
-                                textFieldState.edit { replace(0, length, result.name) }
+                                textFieldState.edit { replace(0, length, resultToQuery(result)) }
                                 expanded = false
                                 onResultClick(result)
                             }
