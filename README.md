@@ -1,4 +1,19 @@
 
+<h1>🎮 Games Retrofit App</h1>
+
+<p>The <strong>Games Retrofit App</strong> is an Android application built with <strong>Kotlin</strong> and <strong>Jetpack Compose</strong> that allows users to explore video games and view detailed information about each title.</p>
+
+<ul>
+  <li>Fetches data from a REST API using <strong>Retrofit</strong>.</li>
+  <li>Displays a list of games in a modern <strong>Compose UI</strong>.</li>
+  <li>Supports <strong>search-as-you-type</strong> functionality for quick game discovery.</li>
+  <li>Includes detailed game information such as description, reviews, Metacritic score, and official website links.</li>
+  <li>Implements <strong>MVVM architecture</strong>, <strong>Dagger Hilt</strong> for dependency injection, and <strong>Navigation Compose</strong> for smooth screen transitions.</li>
+</ul>
+
+<p>This project demonstrates clean architecture practices, state management in Jetpack Compose, and integration with external APIs in a scalable Android app.</p>
+
+
 <div>
   <h3>📌 Project Highlights</h3>
   <ul>
@@ -22,6 +37,7 @@
   </ul>
 </div>
 
+
 <h3> App Views </h3>
 <p align="center">
   <img src="https://github.com/nolvertou/GamesRetrofitApp/blob/4f660c988b4ab9e49ee0defb01f95fecd8cabb87/app/src/main/res/drawable/HomeView.jpg" alt="HomeView" width="200"/>
@@ -30,13 +46,5 @@
 </p>
 
 
-
-
-
-<p align="center">
-  <img src="https://github.com/nolvertou/GamesRetrofitApp/blob/4f660c988b4ab9e49ee0defb01f95fecd8cabb87/app/src/main/res/drawable/HomeView.jpg" alt="HomeView" width="200"/>
-  <img src="https://github.com/nolvertou/GamesRetrofitApp/blob/4f660c988b4ab9e49ee0defb01f95fecd8cabb87/app/src/main/res/drawable/DetailView.jpg" alt="DetailView" width="200"/>
-  <img src="https://github.com/nolvertou/GamesRetrofitApp/blob/4f660c988b4ab9e49ee0defb01f95fecd8cabb87/app/src/main/res/drawable/SearchGameView.jpg" alt="SearchGameView" width="200"/>
-</p>
 
 
