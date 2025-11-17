@@ -32,7 +32,8 @@ import nou.com.example.gamesretrofitapp.viewModel.GamesViewModel
 fun DetailView(
     viewModel: GamesViewModel,
     navController: NavController,
-    id: Int
+    id: Int,
+    name: String?
 ){
 
     // Its executed when DetailView is opened
@@ -43,7 +44,14 @@ fun DetailView(
     // viewModel.getGameById(id)
     // to load the game data.
     LaunchedEffect(Unit) {
-        viewModel.getGameById(id)
+
+        if(id == 0){
+            // If name exists, it calls viewModel.getGameByName(name) to load the game data by name.
+            name?.let { viewModel.getGameByName(it.replace(" ", "-")) }
+        }else{
+            viewModel.getGameById(id)
+        }
+
     }
 
     // DisposableEffect is used when you need to clean up resources when the composable leaves the composition.
